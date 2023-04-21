@@ -1,0 +1,47 @@
+Resources: 
+  VPC:
+    Type: "AWS::EC2::VPC"
+    Properties:
+      CidrBlock: "10.0.0.0/16"
+      Tags:
+      - Key: "Name"
+        Value: "TestVPC"
+
+  SubnetA:
+    Type: "AWS::EC2::Subnet"
+    Properties:
+      AvailabilityZone: !Select 
+        - 0
+        - !GetAZs 
+          Ref: 'AWS::Region'
+      VpcId: !Ref "VPC"
+      CidrBlock: "10.0.0.0/20"
+
+#  SubnetB:
+#    Type: "AWS::EC2::Subnet"
+#    Properties:
+#      AvailabilityZone: !Select 
+#        - 1
+#        - !GetAZs 
+#          Ref: 'AWS::Region'
+#      VpcId: !Ref "VPC"
+#      CidrBlock: "10.0.1.0/24"
+
+  RouteTable:
+    Type: "AWS::EC2::RouteTable"
+    Properties:
+      VpcId: !Ref "VPC"
+
+Outputs:
+    VPCId:
+        Description: "VPCId of VPC"
+        Value:
+            Ref: "VPC"
+        Export:
+            Name: "VPCId"
+    SubnetID:
+        Description: "Subnet ID of Subnet"
+        Value:
+            Ref: "SubnetA"
+        Export:
+            Name: "SubnetAID"
