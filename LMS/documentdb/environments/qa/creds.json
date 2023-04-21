@@ -1,0 +1,12 @@
+{
+    "Credentials": {
+        "AccessKeyId": "ASIA2TFYEZBILXPCCAOU",
+        "SecretAccessKey": "qny0jAfuLcZqUPtitd3t6UjkWnBQfyTIx35rwTOw",
+        "SessionToken": "IQoJb3JpZ2luX2VjEHMaCXVzLWVhc3QtMSJIMEYCIQDzqHfEBGszOcd0f9hjNAs/rk68CpzFWCwbGq+SAPlHngIhAI2C1GBo1tqS3nnSzIoxGQIWaX802/+C2i8ARRr29VdNKqYCCKz//////////wEQABoMNzI4MzgzMTQ2MDY0Igx2XGCAb950SukiKnsq+gE4E9SNnDpQsAi1oo3ItTAkFxSLEwiW3ja3DnsLHjjIX4gsLhPngdXLsaUI+bG2ZrOLM5VpDFQ2j/4f4xbw9YRuZzZImJY0RunjUisjmltUNLGCMLV5Z6iK67Q23Zw0yCYx8pAqW6CdlxetNTS4plSAI6huHn99BQvqkueYVSfbzyozvnAIePOO5uCRaHeTwigMdxYgQOsAUEhXkavfI1U9ZXMBuROuHQGuKZgIz2sTw9hzJm+fA7EGJr96sY2xV1CaGZXghyVgjR4y6vlBTK2SSl1JefvZzeQZ01jWkDjiF2HcjRoUBQZrCqxp0gA82rnZ1KxSRKoxwLpbMLDIkp0GOpwBjy1ju5K3CoG7NNRAV18B9zWDGSyJFpj209+YP8RLx9xgSAWVkiiFqZFqr0g6poKjPaI4HQv8ugSKXbawFd7sVioKz4M9ur1oXaTWn0B25ty0pSO9KoemMxLVHDSoxqvWV4gn89ct+E8D6EWjEpCEmEmQHharnFw/Qb7Ud7hWQd7YZ/em/ka2j5/iPEfLsdKMMqZ/X/NMzMBARJBF",
+        "Expiration": "2022-12-22T19:38:40+00:00"
+    },
+    "AssumedRoleUser": {
+        "AssumedRoleId": "AROA2TFYEZBIPEHWLYVN7:Terraform_Script",
+        "Arn": "arn:aws:sts::728383146064:assumed-role/Terraform-CICD/Terraform_Script"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession"
+            ],
+            "Resource": [
+                "arn:aws:ec2:us-east-2:123456789012:instance/mi-0026da885858fed47",
+                "arn:aws:ec2:us-east-2:123456789012:instance/mi-0ffb9ce34e9410542",
+                "arn:aws:ec2:us-east-2:123456789012:instance/mi-0dc3fdd9e7c2f29db"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession",
+                "ssm:ResumeSession"
+            ],
+            "Resource": [
+                "arn:aws:sts::926112669751:assumed-role/prd-ecsExternalInstanceRole/*"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+#cloud-config
+bootcmd:
+ - cloud-init-per instance $(echo "ECS_CLUSTER=${cluster_name}" >> /etc/ecs/ecs.config)
+
+runcmd:
+    - yum -y update
+    - yum -y install vim aws-cli nc
+    - mkdir -p ~/.aws
+    - echo "[default]" > ~/.aws/config
+    - echo "region = us-east-1" >> ~/.aws/config
+    - echo "adam" > /root/adam

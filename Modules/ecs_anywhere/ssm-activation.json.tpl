@@ -1,0 +1,4 @@
+{
+    "ActivationId": "${id}",
+    "ActivationCode": "${code}"
+}
