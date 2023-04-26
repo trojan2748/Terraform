@@ -1,11 +1,16 @@
 version: 0.2
 
 phases:
-  install:
-    pre-build:
+    install:
+      commands:
+        - echo Install Phase
+    pre_build:
       commands: 
         - echo Logging INTO Amazon ECR 
         - aws --version
+        - echo $AWS_DEFAULT_REGION
+        - AWS_ACCOUNT_ID=`aws sts get-caller-identity --query "Account" --output text`
+        - echo $AWS_ACCOUNT_ID
         - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS  --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
         - echo ECR_URI is $ECR_URI 
         - echo REGION is $REGION
