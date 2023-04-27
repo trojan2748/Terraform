@@ -1,0 +1,12 @@
+{
+  "applicationId": "chapter8",
+  "name": "chapter8-servers",
+  "group": "chapter8/",
+  "type": "Service",
+  "dnsName": "chapter8",
+  "isPubliclyExposed": false,
+  "heartbeatEndpoint": "api/diagnostics/heartbeat",
+  "desiredCount": 3,
+  "preferredPort": 5013,
+  "description": "A service for publishing messages"
+}

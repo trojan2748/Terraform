@@ -1,0 +1,17 @@
+{
+  "name": "Chapter8",
+  "source": {
+    "type": "S3",
+    "location": "s3://adamll3/docker/"
+  },
+  "artifacts": {
+    "type": "NO_ARTIFACTS"
+  },
+  "environment": {
+    "type": "LINUX_CONTAINER",
+    "image": "docker:dind",
+    "computeType": "BUILD_GENERAL1_SMALL",
+    "privilegedMode": true
+  },
+  "serviceRole": "arn:aws:iam::362387340557:role/service-role/codebuild-Chapter8-service-role"
+}
