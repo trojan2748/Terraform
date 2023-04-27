@@ -7,7 +7,7 @@ GROUP=$(jq -r '.group' cicd.json | sed 's:/*$::')
 REPO=$GROUP"/"$DNS_NAME
 REPO_NAME=$(echo "$REPO" | tr '[:upper:]' '[:lower:]')
 
-echo "# Checking to see if $REPO_NAME exist"
+echo "# Checking to see if $REPO_NAME exist #"
 aws ecr describe-repositories --repository-names $REPO_NAME 2>&1 > /dev/null
 status=$?
 if [[ ! "${status}" -eq 0 ]]; then
