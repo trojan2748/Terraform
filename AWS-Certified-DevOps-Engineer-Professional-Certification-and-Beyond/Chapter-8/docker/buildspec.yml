@@ -8,15 +8,16 @@ phases:
         - echo #######################
         - export AWS_ACCOUNT_ID=`aws sts get-caller-identity --query "Account" --output text`
         - sudo yum -y install docker
-        - sudo nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock &
-        - timeout 15 sh -c "until sudo docker info; do echo .; sleep 1; done"
         - echo
     pre_build:
       commands: 
         - echo #########################
         - echo #### Pre_build Phase ####
         - echo #########################
+        - sudo nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock &
+        - timeout 15 sh -c "until sudo docker info; do echo .; sleep 1; done"
         - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS  --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+        - codebuild-breakpoint
         - echo
     build:
       commands:
