@@ -13,21 +13,20 @@ phases:
         - echo #### Pre_build Phase ####
         - export AWS_ACCOUNT_ID=`aws sts get-caller-identity --query "Account" --output text`
         - export IMAGE_NAME=`cat cicd.json  | jq -r .name`
-        - export IMAGE_REPO_NAME=`cat cicd.json  | jq -r .group`
+        - export IMAGE_GROUP_NAME=`cat cicd.json  | jq -r .group`
+        - export IMAGE_REPO_NAME=$IMAGE_GROUP_NAME$IMAGE_NAME
         - export IMAGE_TAG=latest
         - export IMAGE_PATH=$IMAGE_REPO_NAME$IMAGE_NAME:$IMAGE_TAG
-        - echo $IMAGE_PATH
         - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS  --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
     build:
       commands:
         - echo #### Build Phase ####
         - echo $ADAM
         - echo Build started on `date`
-        - docker build -t $IMAGE_PATH . 
-        - docker tag $IMAGE_PATH $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_PATH
-        - docker push AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_PATH
-        - echo Writing the image definitions file...
-        - printf '[[{"name":"Eight","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
+        - bash build.sh
+#        - docker build -t $IMAGE_PATH . 
+#        - docker tag $IMAGE_PATH $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_PATH
+#        - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_PATH
     post_build:
       commands:
         - echo #### Post_build Phase ####
