@@ -1,0 +1,20 @@
+Caching
+    - Types:
+        - Client side: Browser
+        - Edge: AWS CloudFront
+        - Server side:
+        - Database:
+            Load types:
+            - Inline: Service manages r/w to db: DAX (DynamoDB Accelerator)
+            - Side loaded: Elasticache
+                - Lazy-side loading: App writes to DB only
+                - Write through: App writes to both DB and Cache
+
+    - ElastiCache (Server and DB side):
+        * Managed Service
+        * Redis/Memcached
+        * Backends can be RDS/DynamoDB/any_db
+        * Workflow:
+            1) App trys cache (misses)
+            2) App trys db (hits)
+            3) App write to cache server
