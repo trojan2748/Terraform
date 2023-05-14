@@ -32,7 +32,7 @@ Parameters:
   RepositoryURL:
     Type: String
     Description: The Clone URL for the Code Commit Repository
-    Default: "https://git-codecommit.us-east-2.amazonaws.com/v1/repos/chapter9"
+    Default: "https://git-codecommit.us-east-1.amazonaws.com/v1/repos/chapt9"
 
 Resources:
 
@@ -121,6 +121,8 @@ Resources:
                Effect: Allow
                Action:
                  - codebuild:StartBuild
+                 - codebuild:CreateReportGroup
+                 - codebuild:CreateReport
                  - codecommit:GitPull
                  - ecr:GetAuthorizationToken
                  - ecr:InitiateLayerUpload
