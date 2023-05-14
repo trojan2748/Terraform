@@ -28,11 +28,11 @@ Resources:
     AlarmTopic: 
         Type: "AWS::SNS::Topic"
         Properties: 
-        Subscription: 
-            - 
-                Endpoint: 
-                    Ref: "AlarmEmail"
-                Protocol: "email"
+            Subscription: 
+                - 
+                    Endpoint: 
+                        Ref: "AlarmEmail"
+                    Protocol: "email"
     QueueDepthAlarm: 
         Type: "AWS::CloudWatch::Alarm"
         Properties: 
